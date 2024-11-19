@@ -1,15 +1,15 @@
-import * as React from "react";
+import React from 'react';
 
 interface EmailTemplateProps {
-  firstName: string;
+  children: React.ReactNode;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-  firstName,
-}) => (
-  <div>
-    <h1>Welcome, {firstName}!</h1>
-  </div>
-);
+const EmailTemplate: React.FC<EmailTemplateProps> = ({ children }) => {
+  return (
+    <div>
+      {children}
+    </div>
+  );
+};
 
 export default EmailTemplate;
