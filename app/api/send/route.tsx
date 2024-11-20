@@ -13,7 +13,7 @@ const fromEmail = process.env.FROM_EMAIL || '';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  const { body } = req
+  const { body } = req;
   const { email, subject, message } = body
   try {
 
