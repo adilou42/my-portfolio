@@ -12,8 +12,10 @@
     "@heroicons/react": "^2.1.5",
     "@react-email/render": "^1.0.2",
     "dotenv": "^16.4.5",
+    "framer-motion": "^11.11.17",
     "next": "15.0.2",
     "react": "^18.3.1",
+    "react-animated-numbers": "^0.18.0",
     "react-dom": "^18.3.1",
     "react-type-animation": "^3.2.0",
     "resend": "^4.0.1-alpha.0"
