@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { EmailTemplate } from '../../components/EmailTemplate';
+import EmailTemplate from '../../components/EmailTemplate';
 
 import { render } from '@react-email/render';
 
@@ -10,9 +10,9 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL || '';
 
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest } from 'next';
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextApiRequest) {
   const { body } = req;
   const { email, subject, message } = body
   try {
