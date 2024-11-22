@@ -7,13 +7,16 @@ import { render } from '@react-email/render';
 
 import { Resend } from 'resend';
 
+import { type NextRequest } from 'next/server'
+
+import { NextApiResponse } from 'next';
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL || '';
 
-import { NextApiRequest, NextApiResponse } from 'next';
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  const { body } = req;
+export async function POST(req: NextRequest, res: NextApiResponse) {
+  const body = await req.json();
   const { email, subject, message } = body;
 
   try {
