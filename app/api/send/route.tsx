@@ -1,46 +1,48 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import EmailTemplate from '../../components/EmailTemplate';
+// import EmailTemplate from '../../components/EmailTemplate';
 
-import { render } from '@react-email/render';
+// import { render } from '@react-email/render';
 
-import { Resend } from 'resend';
-
-import { NextResponse, type NextRequest } from 'next/server'
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL || '';
-
+import nodemailer from 'nodemailer';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const { email, subject, message } = body;
 
   try {
-    const emailHtml = render(
-      <EmailTemplate>
-        <div>
-          <h1>{subject}</h1>
-          <p>Thank you for contacting us!</p>
-          <p>New message submitted:</p>
-          <p>{message}</p>
-        </div>
-      </EmailTemplate>
-    );
-
-    const { data, error } = await resend.emails.send({
-      from: fromEmail,
-      to: ['yakdi.adil@gmail.com', email],
-      subject: subject,
-      react: emailHtml,
+    // Create a transporter
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail', // You can use other email services like Outlook, Yahoo, etc.
+      auth: {
+        user: process.env.EMAIL_USER, // Your email address
+        pass: process.env.EMAIL_PASSWORD, // App password (not your email password)
+      },
     });
 
-    if (error) {
-      return NextResponse.json({ error }, { status: 500 });
-    }
+    // Email options
+    const mailOptions = {
+      from: process.env.EMAIL_USER || 'your-email@gmail.com',
+      to: [email, 'yakdi.adil@gmail.com'], // Recipient email addresses
+      subject: subject,
+      text: `New message: ${message}`, // Plain text body
+      html: `
+        <div>
+          <h1>${subject}</h1>
+          <p>Thank you for contacting us!</p>
+          <p>New message submitted:</p>
+          <p>${message}</p>
+        </div>
+      `, // HTML body
+    };
 
-    return NextResponse.json(data, { status: 200 });
+    // Send the email
+    const info = await transporter.sendMail(mailOptions);
+
+    // Respond with success
+    return NextResponse.json({ message: 'Email sent', info }, { status: 200 });
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message || 'Something went wrong' }, { status: 500 });
