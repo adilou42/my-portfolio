@@ -10,10 +10,10 @@ const TAB_DATA = [
         id:"Skills",
         content: (
             <ul className="list-disc pl-2">
-                <li>Node.js</li>
-                <li>Express</li>
-                <li>JavaScript</li>
-                <li>React</li>
+                <li>NextJS</li>
+                <li>NodeJS</li>
+                <li>TypeScript</li>
+                <li>C/C++</li>
             </ul>
         )
     },
@@ -22,10 +22,9 @@ const TAB_DATA = [
         id:"Education",
         content: (
             <ul className="list-disc pl-2">
-                <li>Node.js2</li>
-                <li>Express2</li>
-                <li>JavaScript2</li>
-                <li>React2</li>
+                <li>42 School - Paris</li>
+                <li>OpenClassRooms - Online</li>
+                <li>FrontEnd Roadmap - Scrimba</li>
             </ul>
         )
     },
@@ -34,10 +33,8 @@ const TAB_DATA = [
         id:"Experience",
         content: (
             <ul className="list-disc pl-2">
-                <li>Node.js3</li>
-                <li>Express3</li>
-                <li>JavaScript3</li>
-                <li>React3</li>
+                <li>Web Developer - OpenClassrooms - 18 months</li>
+                <li>FullStack Developer - Chabé - 18 months</li>
             </ul>
         )
     }
@@ -55,7 +52,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white">
+    <section className="text-white scroll-mt-[8rem]" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <Image
           src="/images/desktop_Image.webp"

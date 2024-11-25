@@ -36,17 +36,34 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Description
+            This portfolio showcases my journey, including:{" "}
+          </p>
+          <ul className="list-disc ml-5">
+            <li className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
+              Projects that reflect creativity and technical skills.
+            </li>
+            <li className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
+              A glimpse into my professional experience and contributions.
+            </li>
+            <li className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
+              Insights into my development process, tools, and methodologies.
+            </li>
+          </ul>
+          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
+            Feel free to explore and connect with me for collaboration
+            opportunities. Let{"'"}s build something amazing together!
           </p>
           <div>
-          <Link
+            <Link
               href="/#contact"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
             >
               Hire Me
             </Link>
             <Link
-              href="/"
+              href="/cv_yakdi_adil_.pdf"
+              target="blank"
+              download="Yakdi_Adil_CV.pdf"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
