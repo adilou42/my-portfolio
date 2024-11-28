@@ -31,8 +31,6 @@ export async function POST(req: NextRequest) {
       html: `
         <div>
           <h1>${subject}</h1>
-          <p>Thank you for contacting us!</p>
-          <p>New message submitted:</p>
           <p>${message}</p>
         </div>
       `, // HTML body

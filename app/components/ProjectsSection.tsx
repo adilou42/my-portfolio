@@ -13,7 +13,7 @@ const projectsData = [
     image: "/images/projects/YTClone.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/adilou42/YouTubeClone",
-    previewUrl: "/",
+    previewUrl: "https://you-tube-clone-olive-eta.vercel.app/",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const projectsData = [
     image: "/images/projects/Kasa.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/adilou42/Kasa_Project",
-    previewUrl: "/",
+    previewUrl: "https://kasa-project-three.vercel.app/",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const projectsData = [
     image: "/images/projects/weather_app.png",
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com/adilou42/weather_app",
-    previewUrl: "/",
+    previewUrl: "https://weather-app-m98s.vercel.app/",
   },
   // {
   //   id: 4,
