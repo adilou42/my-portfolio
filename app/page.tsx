@@ -1,5 +1,4 @@
 import AboutSection from "./components/AboutSection";
-// import AchievementSection from "./components/AchievementSection";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
@@ -12,7 +11,6 @@ export default function Home() {
       <Navbar />
       <div className="container mt-24 mx-auto px-12 py-4">
         <HeroSection />
-        {/* <AchievementSection /> */}
         <AboutSection />
         <ProjectsSection />
         <EmailSection />
