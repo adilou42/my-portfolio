@@ -4,12 +4,16 @@ import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 const projectsData = [
   {
     id: 1,
     title: "YouTube Clone",
-    description: "Project made with NextJS, Tailwind and TypeScript",
+    description: {
+      en: "Project made with NextJS, Tailwind and TypeScript",
+      fr: "Projet réalisé avec NextJS, Tailwind et TypeScript"
+    },
     image: "/images/projects/YTClone.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/adilou42/YouTubeClone",
@@ -18,7 +22,10 @@ const projectsData = [
   {
     id: 2,
     title: "Kasa",
-    description: "Responsive website to rent appartements. Made with React, Typescript",
+    description: {
+      en: "Responsive website to rent apartments. Made with React, TypeScript",
+      fr: "Site web responsive pour louer des appartements. Réalisé avec React, TypeScript"
+    },
     image: "/images/projects/Kasa.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/adilou42/Kasa_Project",
@@ -27,7 +34,10 @@ const projectsData = [
   {
     id: 3,
     title: "Weather App",
-    description: "An app that uses a uses a weather api. Made with Javascript",
+    description: {
+      en: "An app that uses a weather API. Made with JavaScript",
+      fr: "Une application qui utilise une API météo. Réalisée avec JavaScript"
+    },
     image: "/images/projects/weather_app.png",
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com/adilou42/weather_app",
@@ -39,6 +49,8 @@ const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { language, translations } = useLanguage();
+  const t = translations[language].projects;
 
   const handleTagChange = (newTag: string) => {
     setTag(newTag);
@@ -54,14 +66,14 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects"  className="scroll-mt-[8rem]">
+    <section id="projects" className="scroll-mt-[8rem]">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
+        {t.title}
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
-          name="All"
+          name={t.tags.all}
           isSelected={tag === "All"}
         />
         <ProjectTag
@@ -86,7 +98,7 @@ const ProjectsSection = () => {
           >
             <ProjectCard
               title={project.title}
-              description={project.description}
+              description={project.description[language]}
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}

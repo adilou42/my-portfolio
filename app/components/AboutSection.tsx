@@ -3,47 +3,50 @@
 import React, { useState, useTransition } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
-
-const TAB_DATA = [
-    {
-        title: "Skills",
-        id:"Skills",
-        content: (
-            <ul className="list-disc pl-2">
-                <li>NextJS</li>
-                <li>NodeJS</li>
-                <li>TypeScript</li>
-                <li>C/C++</li>
-            </ul>
-        )
-    },
-    {
-        title: "Education",
-        id:"Education",
-        content: (
-            <ul className="list-disc pl-2">
-                <li>42 School - Paris</li>
-                <li>OpenClassRooms - Online</li>
-                <li>FrontEnd Roadmap - Scrimba</li>
-            </ul>
-        )
-    },
-    {
-        title: "Experience",
-        id:"Experience",
-        content: (
-            <ul className="list-disc pl-2">
-                <li>Web Developer - OpenClassrooms - 18 months</li>
-                <li>FullStack Developer - Chabé - 18 months</li>
-            </ul>
-        )
-    }
-]
+import { useLanguage } from "../context/LanguageContext";
 
 const AboutSection = () => {
   const [tab, setTab] = useState("Skills");
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPending, startTransition] = useTransition();
+  const { language, translations } = useLanguage();
+  const t = translations[language].about;
+
+  const TAB_DATA = [
+    {
+      title: t.tabTitles.skills,
+      id: "Skills",
+      content: (
+        <ul className="list-disc pl-2">
+          <li>NextJS</li>
+          <li>NodeJS</li>
+          <li>TypeScript</li>
+          <li>C/C++</li>
+        </ul>
+      )
+    },
+    {
+      title: t.tabTitles.education,
+      id: "Education",
+      content: (
+        <ul className="list-disc pl-2">
+          <li>{t.education.school42}</li>
+          <li>{t.education.openClassrooms}</li>
+          <li>{t.education.scrimba}</li>
+        </ul>
+      )
+    },
+    {
+      title: t.tabTitles.experience,
+      id: "Experience",
+      content: (
+        <ul className="list-disc pl-2">
+          <li>{t.experience.openClassrooms}</li>
+          <li>{t.experience.chabe}</li>
+        </ul>
+      )
+    }
+  ];
 
   const handleTabChange = (id: string) => {
     startTransition(() => {
@@ -61,34 +64,23 @@ const AboutSection = () => {
           height={500}
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">{t.title}</h2>
           <p className="text-base lg:text-lg">
-            👋 Hello! I{"'"}m Adil Yakdi 🚀 Full-Stack Developer (NodeJS,
-            NextJS and TypeScript) with a passion for creating robust and
-            scalable web applications.
+            {t.description}
           </p>
           <div className="flex flex-row mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("Skills")}
-              active={tab === "Skills"}
-            >
-              Skills
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("Education")}
-              active={tab === "Education"}
-            >
-              Education
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("Experience")}
-              active={tab === "Experience"}
-            >
-              Experience
-            </TabButton>
+            {TAB_DATA.map((tabItem) => (
+              <TabButton
+                key={tabItem.id}
+                selectTab={() => handleTabChange(tabItem.id)}
+                active={tab === tabItem.id}
+              >
+                {tabItem.title}
+              </TabButton>
+            ))}
           </div>
           <div className="mt-8">
-                {TAB_DATA.find((t) => t.id === tab)?.content}
+            {TAB_DATA.find((t) => t.id === tab)?.content}
           </div>
         </div>
       </div>

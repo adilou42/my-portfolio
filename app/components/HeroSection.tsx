@@ -5,8 +5,12 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useLanguage } from "../context/LanguageContext";
 
 const HeroSection = () => {
+  const { language, translations } = useLanguage();
+  const t = translations[language].hero;
+
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -17,46 +21,38 @@ const HeroSection = () => {
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl lg:leading-normal font-extrabold">
-            <span>Hello, I{"'"}m</span>
+            <span>{t.greeting}</span>
             <br />
             <TypeAnimation
-              sequence={[
-                "Adil",
-                1000,
-                "Web Developer",
-                1000,
-                "FullStack Developer",
-                1000,
-              ]}
+              sequence={t.animation}
               wrapper="span"
               speed={50}
               repeat={Infinity}
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            This portfolio showcases my journey, including:{" "}
+            {t.description}
           </p>
           <ul className="list-disc ml-5">
             <li className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-              Projects that reflect creativity and technical skills.
+              {t.projectsShowcase}
             </li>
             <li className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-              A glimpse into my professional experience and contributions.
+              {t.experience}
             </li>
             <li className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-              Insights into my development process, tools, and methodologies.
+              {t.insights}
             </li>
           </ul>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Feel free to explore and connect with me for collaboration
-            opportunities. Let{"'"}s build something amazing together!
+            {t.explore}
           </p>
           <div>
             <Link
               href="/#contact"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
             >
-              Hire Me
+              {t.hireMe}
             </Link>
             <Link
               href="/cv_yakdi_adil_.pdf"
@@ -65,7 +61,7 @@ const HeroSection = () => {
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
+                {t.downloadCV}
               </span>
             </Link>
           </div>

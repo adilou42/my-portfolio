@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.css";
+import { LanguageProvider } from "./context/LanguageContext";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -31,7 +32,7 @@ export default function RootLayout({
       <body
         className= "antialiased"
       >
-        {children}
+         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

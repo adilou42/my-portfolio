@@ -1,10 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-// import EmailTemplate from '../../components/EmailTemplate';
-
-// import { render } from '@react-email/render';
-
 import nodemailer from 'nodemailer';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -24,7 +20,7 @@ export async function POST(req: NextRequest) {
 
     // Email options
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'your-email@gmail.com',
+      from: process.env.EMAIL_USER,
       to: [email, 'yakdi.adil@gmail.com'], // Recipient email addresses
       subject: subject,
       text: `New message: ${message}`, // Plain text body

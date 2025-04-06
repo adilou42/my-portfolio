@@ -24,7 +24,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         style={{ 
           backgroundImage: `url(${imgUrl})`,
           backgroundSize: "cover",
-          // backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
         }}
       >
