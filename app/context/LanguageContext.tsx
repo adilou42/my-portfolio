@@ -116,7 +116,7 @@ const translations: Record<Language, TranslationType> = {
       },
       contact: {
         title: "Let's Connect",
-        description: "I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+        description: "I'm always looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
         form: {
           emailLabel: "Your email",
           emailPlaceholder: "name@gmail.com",
@@ -174,7 +174,7 @@ const translations: Record<Language, TranslationType> = {
       },
       contact: {
         title: "Contactez-moi",
-        description: "Je suis actuellement à la recherche de nouvelles opportunités, ma boîte de réception est toujours ouverte. Que vous ayez une question ou que vous vouliez simplement dire bonjour, je ferai de mon mieux pour vous répondre !",
+        description: "Je suis toujours à la recherche de nouvelles opportunités, ma boîte de réception est toujours ouverte. Que vous ayez une question ou que vous vouliez simplement dire bonjour, je ferai de mon mieux pour vous répondre !",
         form: {
           emailLabel: "Votre email",
           emailPlaceholder: "nom@gmail.com",

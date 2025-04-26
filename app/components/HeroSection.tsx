@@ -62,9 +62,9 @@ const HeroSection = () => {
               {t.hireMe}
             </Link>
             <Link
-              href="/cv_yakdi_adil_.pdf"
+              href={language === "fr" ? "/Adil_Yakdi_CV_FR.pdf" : "/Adil_Yakdi_CV_EN.pdf"}
               target="blank"
-              download="Yakdi_Adil_CV.pdf"
+              download={language === "fr" ? "Adil_Yakdi_CV_FR.pdf" : "Adil_Yakdi_CV_EN.pdf"}
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
