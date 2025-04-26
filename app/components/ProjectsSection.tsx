@@ -15,7 +15,7 @@ const projectsData = [
       fr: "Projet réalisé avec NextJS, Tailwind et TypeScript"
     },
     image: "/images/projects/YTClone.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Tous", "Web"],
     gitUrl: "https://github.com/adilou42/YouTubeClone",
     previewUrl: "https://you-tube-clone-olive-eta.vercel.app/",
   },
@@ -27,7 +27,7 @@ const projectsData = [
       fr: "Site web responsive pour louer des appartements. Réalisé avec React, TypeScript"
     },
     image: "/images/projects/Kasa.png",
-    tag: ["All", "Web"],
+    tag: ["All", "Tous", "Web"],
     gitUrl: "https://github.com/adilou42/Kasa_Project",
     previewUrl: "https://kasa-project-three.vercel.app/",
   },
@@ -39,7 +39,7 @@ const projectsData = [
       fr: "Une application qui utilise une API météo. Réalisée avec JavaScript"
     },
     image: "/images/projects/weather_app.png",
-    tag: ["All", "Mobile"],
+    tag: ["All", "Tous", "Mobile"],
     gitUrl: "https://github.com/adilou42/weather_app",
     previewUrl: "https://weather-app-m98s.vercel.app/",
   },
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
         <ProjectTag
           onClick={handleTagChange}
           name={t.tags.all}
-          isSelected={tag === "All"}
+          isSelected={tag === "All" || tag === "Tous"}
         />
         <ProjectTag
           onClick={handleTagChange}

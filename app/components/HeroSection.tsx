@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -10,6 +10,12 @@ import { useLanguage } from "../context/LanguageContext";
 const HeroSection = () => {
   const { language, translations } = useLanguage();
   const t = translations[language].hero;
+  const [key, setKey] = useState(0); // Add a key state to force re-render
+
+  // Reset the animation component when language changes
+  useEffect(() => {
+    setKey((prevKey) => prevKey + 1);
+  }, [language]);
 
   return (
     <section className="lg:py-16">
@@ -24,6 +30,7 @@ const HeroSection = () => {
             <span>{t.greeting}</span>
             <br />
             <TypeAnimation
+              key={key} // Add the key prop here to force re-render
               sequence={t.animation}
               wrapper="span"
               speed={50}
